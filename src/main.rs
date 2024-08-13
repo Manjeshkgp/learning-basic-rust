@@ -1,9 +1,18 @@
 fn main() {
-    let s1: String = String::from("Hello");
-    let len = calc_length(&s1); // passing reference of s1 || borrow operation
-    println!("The main string is {} and it's length is {}", s1, len);
+    // Create a mutable String s1 with initial content "Hello"
+    let mut s1: String = String::from("Hello");
+    
+    // Borrow s1 as mutable and pass it to the append_string function
+    // This allows the function to modify the original String s1
+    append_string(&mut s1); 
+    
+    // After the function call, s1 has been mutated and now contains "Hello extra str"
+    println!("The new string s1 becomes {}", s1);
 }
 
-fn calc_length(arg: &String) -> usize { // arg refers to value of s1 but does not own it
-    return arg.len(); // after borrowing, no write operations can be done, only read operations allowed
+// This function takes a mutable reference to a String
+// The mutable reference allows the function to modify the String that was passed to it
+fn append_string(arg: &mut String) { 
+    // Mutate the borrowed String by appending " extra str" to it
+    arg.push_str(" extra str");
 }
