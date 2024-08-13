@@ -1,17 +1,9 @@
 fn main() {
-    let s1: String = get_string(); // s1 is the new owner of hello
-    println!("s1={}", s1);
-
-    let s2: String = String::from("sssstttrrriiinnnggg 222"); // s2 is owner of the given big string
-    let s3: String = send_get_string(s2); // transfer of ownership from s2 to arg, then arg to s3, s3 is new owner of big string
-    println!("s3={}", s3);
+    let s1:String = String::from("Hello"); // s1 owner
+    let s1_len:usize = calc_length(s1); // ownership transfered
+    println!("s1={} and it's length is {}",s1,s1_len); // this will throw error
 }
 
-fn get_string() -> String {
-    let str = String::from("hello"); //str owner of hello
-    return str; // transfer of ownership
-}
-
-fn send_get_string(arg: String) -> String { // arg is new owner of the big string
-    return arg; // transfer of ownership
+fn calc_length (arg:String)->usize { // arg will be new owner
+    return arg.len(); // returned 5
 }
