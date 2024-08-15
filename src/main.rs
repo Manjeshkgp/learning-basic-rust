@@ -1,12 +1,14 @@
-fn main(){
-    let mut arr:[&str;3] = ["Hello","BY","Manjesh"];
-    write_arr(&mut arr); // reference of mut arr is passed
-    println!("arr={:?}",arr); 
-}
+// Vector - Dynamic Array
 
-fn write_arr(arr1:&mut [&str;3]){
-    arr1[0] = "Updated arr[0]";
-    println!("arr1={:?}",arr1);
+fn main() {
+    // let mut v:Vec<i32> = Vec::new(); // declaration
+    // // let mut v = Vec::<i32>::new(); // declaration also can be done via this
+    // v.push(1);
+    // v.push(2);
+    // v.push(3);
+    // println!("v={:?}",v);
+    let mut v = vec![1,2,3,4,5];
+    v.pop();
+    v.push(6);
+    println!("v={:?}",v);
 }
-
-// both arr & arr1 will be same, as arr1 edited the main mut arr
