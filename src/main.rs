@@ -1,11 +1,10 @@
-// Dangling Referrence
-
-fn main() {
-    let a = String::from("hello");
-    let refer_to_nothing = give_me_reffer(a);
+fn main(){
+    let arr:[&str;3] = ["Hello","BY","Manjesh"];
+    write_arr(arr); // array directly passed
+    println!("arr={:?}",arr); // {:?} is used to format output in a way that is suitable for debugging, if not used then you'll see compilation errors
 }
 
-fn give_me_reffer()->&String {
-    let s = String::from("hello");
-    return &s; // scope of s is ended here that's why refer_to_nothing will be invalid, so this will throw error
+fn write_arr(mut arr1:[&str;3]) { // arr1 new copy of arr, since fixed size arrays and i32, u32, etc. (primitive data types) are stored in stack, not in heap
+    arr1[0] = "Fellow";
+    println!("arr1={:?}",arr1);
 }
