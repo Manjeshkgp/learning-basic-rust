@@ -1,10 +1,12 @@
 fn main(){
-    let arr:[&str;3] = ["Hello","BY","Manjesh"];
-    write_arr(arr); // array directly passed
-    println!("arr={:?}",arr); // {:?} is used to format output in a way that is suitable for debugging, if not used then you'll see compilation errors
+    let mut arr:[&str;3] = ["Hello","BY","Manjesh"];
+    write_arr(&mut arr); // reference of mut arr is passed
+    println!("arr={:?}",arr); 
 }
 
-fn write_arr(mut arr1:[&str;3]) { // arr1 new copy of arr, since fixed size arrays and i32, u32, etc. (primitive data types) are stored in stack, not in heap
-    arr1[0] = "Fellow";
+fn write_arr(arr1:&mut [&str;3]){
+    arr1[0] = "Updated arr[0]";
     println!("arr1={:?}",arr1);
 }
+
+// both arr & arr1 will be same, as arr1 edited the main mut arr
