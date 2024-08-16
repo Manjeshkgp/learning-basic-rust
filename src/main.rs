@@ -1,19 +1,11 @@
-// fn main() {
-//     let vrr: Vec<&str>  = vec!["Hello","test"]; // vrr is owner
-//     write_vrr(vrr); // ownership transferred
-//     println!("vrr={:?}",vrr); // this definitely throws error
-// }
-
-// fn write_vrr(vrr2:Vec<&str>){ // vrr2 new owner
-//     println!("vrr2={:?}",vrr2);
-// }
-
+//Shadowing
 fn main() {
-    let mut vrr: Vec<&str>  = vec!["Hello","test"]; // vrr is owner
-    write_vrr(&mut vrr); // vrr2 refers to the value of mut vrr
-    println!("vrr={:?}",vrr);
-}
+    let x = 5; // all of the x are declared, not mutated, so it's allowed
+    println!("x1={}",x);
+    let x = "Hello"; // all of the x are declared, not mutated
+    println!("x2={}",x);
+    let x = x.len(); // all of the x are declared, not mutated, so it's allowed
+    println!("x3={}",x);
 
-fn write_vrr(vrr2:&mut Vec<&str>){ // borrowing happened
-    vrr2.push("Added str");
+    // x = 9; // this is not allowed
 }
