@@ -1,11 +1,22 @@
-//Shadowing
-fn main() {
-    let x = 5; // all of the x are declared, not mutated, so it's allowed
-    println!("x1={}",x);
-    let x = "Hello"; // all of the x are declared, not mutated
-    println!("x2={}",x);
-    let x = x.len(); // all of the x are declared, not mutated, so it's allowed
-    println!("x3={}",x);
+// loops
 
-    // x = 9; // this is not allowed
+// fn main() {
+//     let mut i = 0;
+//     while i<=5 {
+//         println!("{}",i);
+//         i+=1;
+//     }
+// }
+
+// fn main() {
+//     loop {
+//         println!("Infinite Printing");
+//     }
+// }
+
+fn main () {
+    let arr = [1,2,3];
+    for element in &arr{
+        println!("element = {}",element);
+    }
 }
