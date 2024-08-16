@@ -1,14 +1,19 @@
-// Vector - Dynamic Array
+// fn main() {
+//     let vrr: Vec<&str>  = vec!["Hello","test"]; // vrr is owner
+//     write_vrr(vrr); // ownership transferred
+//     println!("vrr={:?}",vrr); // this definitely throws error
+// }
+
+// fn write_vrr(vrr2:Vec<&str>){ // vrr2 new owner
+//     println!("vrr2={:?}",vrr2);
+// }
 
 fn main() {
-    // let mut v:Vec<i32> = Vec::new(); // declaration
-    // // let mut v = Vec::<i32>::new(); // declaration also can be done via this
-    // v.push(1);
-    // v.push(2);
-    // v.push(3);
-    // println!("v={:?}",v);
-    let mut v = vec![1,2,3,4,5];
-    v.pop();
-    v.push(6);
-    println!("v={:?}",v);
+    let mut vrr: Vec<&str>  = vec!["Hello","test"]; // vrr is owner
+    write_vrr(&mut vrr); // vrr2 refers to the value of mut vrr
+    println!("vrr={:?}",vrr);
+}
+
+fn write_vrr(vrr2:&mut Vec<&str>){ // borrowing happened
+    vrr2.push("Added str");
 }
